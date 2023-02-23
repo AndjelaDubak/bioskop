@@ -1,0 +1,33 @@
+<div class="container-fluid pozadina">
+    <div class="row main">
+        <div class="col-lg-4"></div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-4 prijava">
+            <div class="form-container">
+                <div class="form-content">
+                    <div class="login-form-header">
+                        <div class="logo">
+                            <a routerLink="/pocetna"><img src="assets/logo.png" height="140" width="135"></a>
+                        </div>
+                    </div>
+        
+                    <div class="form-body">
+                        <input type='text' placeholder="Korisničko ime" class="form-input" [(ngModel)]='korIme'>
+                        <input type="password"  placeholder="Lozinka" class="form-input" [(ngModel)]='lozinka'>
+                        <br/>
+                        <span class="greska">{{poruka}}</span>
+                    </div>
+        
+                    <div>
+                        <button class="btn" (click)='prijava()'> 
+                            Prijavi se 
+                        </button>
+                    </div>
+                    <div class="link">
+                    Nemate nalog? &nbsp;<a routerLink="/registracija"><strong class="reg">Registrujte se ovde.</strong></a>
+                    </div>
+                </div>
+            </div>
+        </div>   
+        <div class="col-lg-4"></div> 
+    </div>
+</div>

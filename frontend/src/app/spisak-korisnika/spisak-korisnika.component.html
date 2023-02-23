@@ -1,0 +1,40 @@
+<div class="container-fluid pozadina">
+    <app-prvi-navbar></app-prvi-navbar>
+
+    <div class="row" style="margin-bottom: 0px;">
+        <div class="col-sm-2 col-md-4"></div>
+        <div class="col-sm-8 col-md-4 kino">
+            <img src="assets/logo1.png" width="200px" height="64px" style="padding-bottom: 5px;" routerLink="/pocetna">
+        </div>
+        <div class="col-sm-2 col-md-4"></div>
+    </div>
+
+    <app-navbar></app-navbar>
+
+    <div class="row">
+        <div class="col-sm-1 col-md-1 col-lg-2"></div>
+        <div class="col-sm-10 col-md-10 col-lg-8" style="padding: 0px;">
+            <div class="row" style="padding-top: 20px; padding-bottom:20px; background-color: rgba(255,255,255, 0.7);" *ngFor="let n of korisnici">
+                <div class="col-md-4 col-lg-3" style="text-align: center; margin-right: 20px;">
+                    <img src="assets/{{n.slika}}" class="rounded z-depth-1" style="width: 200px;">
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-3">
+                    <h4 class="font-weight-bold" style="color:black;margin-top: 20px;">{{n.ime}} {{n.prezime}}</h4>
+                    <h6 class="font-weight-bold grey-text">{{n.korIme}}</h6>
+                    <span class="grey-text">{{n.email}}</span> <br>
+                    <span class="grey-text">{{n.grad}}</span> <br>
+                    <span class="grey-text">{{n.datumRodjenja}}</span> <br>
+                    <span class="grey-text">{{n.telefon}}</span> <br>
+                </div>
+                <div class="col-md-4 col-lg-3" style="margin-top: 20px;">
+                    <button class="btn" (click)="prihvati(n)" *ngIf="n.odobren=='ne'">Prihvati</button>
+                    <button class="btn" (click)="obrisi(n)" *ngIf="n.tip!='administrator'">Obriši</button>
+                    <button class="btn" (click)="unapredi(n)" *ngIf="ulogovan.tip=='administrator' && n.tip=='korisnik'">Unapredi na moderatora</button>
+                    <button class="btn" (click)="obrisi(n)" *ngIf="n.tip=='administrator'" disabled>ADMINISTRATOR</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-1 col-md-1 col-lg-2"></div>
+    </div>
+    <app-footer></app-footer>
+</div>

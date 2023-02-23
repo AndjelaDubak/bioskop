@@ -1,0 +1,35 @@
+<div class="container-fluid pozadina">
+    <div class="row main">
+        <div class="col-lg-4"></div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-4 prijava">
+            <div class="form-container">
+                <div class="form-content">
+                    <div class="login-form-header">
+                        <div class="logo">
+                            <a routerLink="/pocetna"><img src="assets/logo.png" height="140" width="135"></a>
+                        </div>
+                    </div>
+        
+                    <div class="form-body">
+                        <input type='password' placeholder="Trenutna lozinka" class="form-input" [(ngModel)]='stara'>
+                        <input type="password" placeholder="Nova lozinka" class="form-input" [(ngModel)]='nova'>
+                        <input type="password" placeholder="Potvrda nove lozinke" class="form-input" [(ngModel)]='potvrda'>
+                        <br/>
+                        <span class="greska">{{poruka}}</span>
+                    </div>
+        
+                    <div>
+                        <button class="btn" (click)='promenaLozinke()'> 
+                            Promeni lozinku
+                        </button>
+                    </div>
+
+                    <div *ngIf="uspesno==true" style="display:flex; flex-direction: row; justify-content: center;margin-top: 10px;">
+                        <label>Lozinka uspešno promenjena. <span style="color: brown; text-decoration: underline;" routerLink="/prijava">Prijavite se</span> ponovo.</label>
+                    </div>
+                </div>
+            </div>
+        </div>   
+        <div class="col-lg-4"></div> 
+    </div>
+</div>

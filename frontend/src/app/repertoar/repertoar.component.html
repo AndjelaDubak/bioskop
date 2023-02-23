@@ -1,0 +1,89 @@
+<div class="container-fluid pozadina">
+    <app-prvi-navbar></app-prvi-navbar>
+
+    <div class="row" style="margin-bottom: 0px;">
+        <div class="col-sm-2 col-md-4"></div>
+        <div class="col-sm-8 col-md-4 kino">
+            <img src="assets/logo1.png" width="200px" height="64px" style="padding-bottom: 5px;" routerLink="/pocetna">
+        </div>
+        <div class="col-sm-2 col-md-4"></div>
+    </div>
+
+    <app-navbar></app-navbar>
+
+    <div class="row">
+        <div class="col-sm-1 col-md-1 col-lg-2"></div>
+        <div class="col-sm-10 col-md-10 col-lg-8" style="padding: 0px;">
+            <div class="row" style="padding-top: 20px; padding-bottom:10px; background-color: rgba(255,255,255, 0.7);">
+                <div class="col-md-2 col-lg-2"></div>
+                <div class="col-6 col-sm-6 col-md-4 col-lg-4">
+                    <label style="font-style: italic; margin-left: 2px;">Bioskop</label> <br>
+                    <select class="sel" [(ngModel)]='bioskop' onfocus='this.size=3' onblur='this.size=1' onchange='this.size=1;' style="width: 200px;" (change)="onChangeBioskop()">
+                        <option [ngValue]="bioskop.naziv" *ngFor='let bioskop of bioskopi'>{{bioskop.naziv}}</option>
+                    </select>
+                </div>
+                <div class="col-6 col-sm-6 col-md-4 col-lg-4" style="margin:auto; padding-left: 30px;">
+                    <label style=" font-style: italic; margin-left: 2px;">Žanr</label> <br>
+                    <select class="sel" [(ngModel)]='zanr' onfocus='this.size=3' onblur='this.size=1' onchange='this.size=1;' style="width: 200px;" (change)="onChangeZanr()">
+                        <option value="svi">svi</option>
+                        <option value="akcija">akcija</option>
+                        <option value="animirani">animirani</option>
+                        <option value="avanturisticki">avanturisticki</option>
+                        <option value="biografski">biografski</option>
+                        <option value="dokumentarni">dokumentarni</option>
+                        <option value="psiholoski">psiholoski</option>
+                        <option value="drama">drama</option>
+                        <option value="fantazija">fantazija</option>
+                        <option value="horor">horor</option>
+                        <option value="komedija">komedija</option>
+                        <option value="krimi">krimi</option>
+                        <option value="misterija">misterija</option>
+                        <option value="romanticni">romanticni</option>
+                        <option value="triler">triler</option>
+                        <option value="istorijski">istorijski</option>
+                    </select>
+                </div>
+                <div class="col-md-2 col-lg-2"></div>
+            </div>
+        </div>
+        <div class="col-sm-1 col-md-1 col-lg-2"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-1 col-md-1 col-lg-2"></div>
+        <div class="col-sm-10 col-md-10 col-lg-8" style="padding: 0px;">
+            <div class="row" style="padding-top: 20px; padding-bottom:20px; background-color: rgba(255,255,255, 0.7);">
+                <div class="col-md-1 col-lg-2"></div>
+                <div class="col-12 col-sm-12 col-md-9 col-lg-8" style="margin:auto;justify-content: center;">
+                    <label style="font-style: italic; margin-left:0; margin-right: 10px;">Sortiraj prema:</label>
+                    <input type="radio" (change)="onChangeSortHronoloski()" [checked]="isCheckedHronoloski">
+                    <label for="izvorno" style="padding-left: 3px;margin-right: 10px;">Sortiraj hronološki</label>
+                    <input type="radio" (change)="onChangeSortAbecedno()" [checked]="isCheckedAbeceda">
+                    <label for="izvorno" style="padding-left: 3px;">Sortiraj po abecedi</label>
+                </div>
+                <div class="col-md- col-lg-2"></div>
+            </div>
+        </div>
+        <div class="col-sm-1 col-md-1 col-lg-2"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-1 col-md-1 col-lg-2"></div>
+        <div class="col-sm-10 col-md-10 col-lg-8" style="padding: 0px;">
+            <div class="row" style="padding-top: 20px; padding-bottom:20px; background-color: rgba(255,255,255, 0.7);" *ngFor='let film of filmovi'>
+                <div class="col-4 col-sm-4 col-md-3 col-lg-2" >
+                    <a><img src="assets/{{film.slika}}" class="film" (click)="otvoriFilm(film)"></a>
+                </div>
+                <div class="col-8 col-sm-8 col-md-9 col-lg-10">
+                   <label style="font-size: 20px; font-weight: bolder" (click)="otvoriFilm(film)">{{film.naziv}}</label> <br>
+                   <label style="font-size: 15px;">{{film.zanr}} &nbsp; | &nbsp; {{film.trajanje}}min</label> <br>
+                   <label style="font-size: 15px;">Početak prikazivanja filma: &nbsp; {{film.datumPocetka}}</label> <br>
+                   <b>{{film.ocena.toFixed(1)}}</b> &nbsp; <ngb-rating [(rate)]="film.ocena"></ngb-rating>
+                   <label style="font-size: 15px;">{{film.sadrzaj}}</label> <br>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-1 col-md-1 col-lg-2"></div>
+    </div>
+    <app-footer></app-footer>
+</div>

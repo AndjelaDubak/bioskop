@@ -1,0 +1,108 @@
+<div class="container-fluid pozadina">
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-4 prijava">
+            <div class="form-container">
+            <div class="form-content">
+                <div class="login-form-header">
+                    <div class="logo">
+                        <a routerLink="/pocetna"><img src="assets/logo.png"  height="140" width="135"></a>
+                    </div>
+                </div>
+    
+                <div class="form-body">
+                    <table>
+                        <tr>
+                            <td>
+                                <input type='text' placeholder="Naziv" class="form-input" [(ngModel)]='naziv'>
+                            </td>
+                            <td> <input type='text' placeholder="Datum početka" class="form-input" [(ngModel)]='datumPocetka'></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type='text' placeholder="Trajanje(u minutima)" class="form-input" [(ngModel)]='trajanje'>
+                            </td>
+                            <td>
+                                <input type='text' placeholder="Trejler" class="form-input" [(ngModel)]='trejler'>
+                            </td>
+                        </tr>
+                        <tr>
+                           
+                            <td>
+                                <input type='text' placeholder="Sadržaj" class="form-input" [(ngModel)]='sadrzaj'>
+                            </td>
+                            <td>
+                                <input type='text' placeholder="Glumci" class="form-input" [(ngModel)]='glumci'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text"  placeholder="Režiser" class="form-input" [(ngModel)]='reziser'>
+                            </td>
+                            <td>
+                                <input type="text"  placeholder="Godina izlaska" class="form-input" [(ngModel)]='godIzlaska'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <input type="file" #Image class="form-choose">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <span class="greska"></span>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div style="width: 100%; margin: 0; padding: 0;">
+                        <input type="checkbox" id="akcija" #akcija (change)="changeStatus($event, akcija)">
+                        <label for="akcija" style="margin-right: 15px;">Akcija</label>
+                        <input type="checkbox" id="animirani" #animirani (change)="changeStatus($event, animirani)">
+                        <label for="animirani" style="margin-right: 15px;">Animirani</label>
+                        <input type="checkbox" id="avanturisticki" #avanturisticki (change)="changeStatus($event, avanturisticki)">
+                        <label for="avanturisticki" style="margin-right: 15px;">Avanturistički</label>
+                        <input type="checkbox" id="biografski" #biografski (change)="changeStatus($event, biografski)">
+                        <label for="biografski" style="margin-right: 15px;">Biografski</label> <br>
+                        <input type="checkbox" id="dokumentarni" #dokumentarni (change)="changeStatus($event, dokumentarni)">
+                        <label for="dokumentarni" style="margin-right: 15px;">Dokumentarni</label>
+                        <input type="checkbox" id="psiholoski" #psiholoski (change)="changeStatus($event, psiholoski)">
+                        <label for="psiholoski" style="margin-right: 15px;">Psihološki</label>
+                        <input type="checkbox" id="drama" #drama (change)="changeStatus($event, drama)">
+                        <label for="drama" style="margin-right: 15px;">Drama</label>
+                        <input type="checkbox" id="fantazija" #fantazija (change)="changeStatus($event, fantazija)">
+                        <label for="fantazija" style="margin-right: 15px;">Fantazija</label> <br>
+                        <input type="checkbox" id="horor" #hor (change)="changeStatus($event, hor)">
+                        <label for="horor" style="margin-right: 15px;">Horor</label>
+                        <input type="checkbox" id="komedija" #kom (change)="changeStatus($event, kom)">
+                        <label for="komedija" style="margin-right: 15px;">Komedija</label>
+                        <input type="checkbox" id="krimi" #krimi (change)="changeStatus($event, krimi)">
+                        <label for="krimi" style="margin-right: 15px;">Krimi</label>
+                        <input type="checkbox" id="misterija" #mist (change)="changeStatus($event, mist)">
+                        <label for="misterija" style="margin-right: 15px;">Misterija</label> <br>
+                        <input type="checkbox" id="romanticni" #rom (change)="changeStatus($event, rom)">
+                        <label for="romanticni" style="margin-right: 15px;">Romanticni</label> 
+                        <input type="checkbox" id="triler" #triler (change)="changeStatus($event, triler)">
+                        <label for="triler" style="margin-right: 15px;">Triler</label>
+                        <input type="checkbox" id="istorijski" #ist (change)="changeStatus($event, ist)">
+                        <label for="istorijski" style="margin-right: 15px;">Istorijski</label>
+                    </div>
+
+                    <div colspan="2">
+                        <button class="btn" (click)='prijava(Image)'>Dodaj film
+                    </button></div>
+
+                </div>
+                <div style="display: flex; flex-direction:row; justify-content: center;">
+                    <label for="istorijski" style="font-size:20px;margin-top: 18px;" *ngIf="uspesno==true">Film uspešno dodat!</label>
+                </div>
+               
+                <div>
+                    
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="col-lg-4"></div> 
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="container-fluid pozadina">
+    <app-prvi-navbar></app-prvi-navbar>
+
+    <div class="row" style="margin-bottom: 0px;">
+        <div class="col-sm-2 col-md-4"></div>
+        <div class="col-sm-8 col-md-4 kino">
+            <img src="assets/logo1.png" width="200px" height="64px" style="padding-bottom: 5px;" routerLink="/pocetna">
+        </div>
+        <div class="col-sm-2 col-md-4"></div>
+    </div>
+
+    <app-navbar></app-navbar>
+
+    <div class="row">
+        <div class="col-sm-1 col-md-1 col-lg-2"></div>
+        <div class="col-sm-10 col-md-10 col-lg-8" style="padding: 0px;">
+            <div class="row" style="padding-top: 20px; padding-bottom:20px; background-color: rgba(255,255,255, 0.7);">
+                <div class="col-sm-12" style="text-align: center;">
+                    <label style="font-size: 30px; font-weight: bolder; font-style: italic; color: black;">REPERTOAR ZA {{bioskop.naziv}}</label> <br>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-1 col-md-1 col-lg-2"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-1 col-md-1 col-lg-2"></div>
+        <div class="col-sm-10 col-md-10 col-lg-8" style="padding: 0px;">
+            <div class="row" style="padding-top: 20px; padding-bottom:20px; background-color: rgba(255,255,255, 0.7);" *ngFor='let film of filmovi'>
+                <div class="col-4 col-sm-4 col-md-3 col-lg-2" >
+                    <a><img src="assets/{{film.slika}}" class="film" (click)="otvoriFilm(film)"></a>
+                </div>
+                <div class="col-8 col-sm-8 col-md-9 col-lg-10">
+                   <label style="font-size: 20px; font-weight: bolder" (click)="otvoriFilm(film)">{{film.naziv}}</label> <br>
+                   <label style="font-size: 15px;">{{film.zanr}} &nbsp; | &nbsp; {{film.trajanje}}min</label> <br>
+                   <label style="font-size: 15px;">Početak prikazivanja filma: &nbsp; {{film.datumPocetka}}</label> <br>
+                   <b>{{film.ocena.toFixed(1)}}</b> &nbsp; <ngb-rating [(rate)]="film.ocena"></ngb-rating>
+                   <label style="font-size: 15px;">{{film.sadrzaj}}</label> <br>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-1 col-md-1 col-lg-2"></div>
+    </div>
+    <app-footer></app-footer>
+</div>

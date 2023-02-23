@@ -1,0 +1,66 @@
+<div class="container-fluid pozadina">
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-4 prijava">
+            <div class="form-container">
+            <div class="form-content">
+                <div class="login-form-header">
+                    <div class="logo">
+                        <a routerLink="/pocetna"><img src="assets/logo.png"  height="140" width="135"></a>
+                    </div>
+                </div>
+
+                <div class="form-body">
+                    <div style="width: 100%; display: flex; flex-direction: row; justify-content: center;">
+                        <select class="sel" [(ngModel)]='film' onfocus='this.size=3' onblur='this.size=1' onchange='this.size=1;' style="margin-bottom: 20px;" (change)="onChangeFilm()">
+                            <option [ngValue]="film.naziv" *ngFor='let film of filmovi'>{{film.naziv}}</option>
+                        </select> <br>
+                    </div>
+                    <table>
+                        <tr>
+                            <td>
+                                <input type='text' placeholder="Datum prikazivanja" class="form-input" [(ngModel)]='datum'>
+                            </td>
+                            <td>
+                                <input type='text' placeholder="Vreme prikazivanja" class="form-input" [(ngModel)]='vreme'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text"  placeholder="Sala" class="form-input" [(ngModel)]='sala'>
+                            </td>
+                            <td>
+                                <input type="text"  placeholder="Cena" class="form-input" [(ngModel)]='cena'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <span class="greska"></span>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div style="width: 100%; margin: 0; padding: 0;" *ngFor='let b of bioskopi'>
+                        <input type="checkbox" (change)="changeStatus($event, b)">
+                        <label for="akcija" style="margin-right: 15px;">{{b.naziv}}</label>
+
+                    </div>
+
+                    <div colspan="2">
+                        <button class="btn" (click)='prijava()'>Dodaj projekciju
+                    </button></div>
+
+                </div>
+                <div style="display: flex; flex-direction:row; justify-content: center;">
+                    <label for="istorijski" style="font-size:20px; margin-top: 18px;" *ngIf="uspesno==true">Projekcija uspešno dodata!</label>
+                </div>
+               
+                <div>
+                    
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="col-lg-4"></div> 
+    </div>
+</div>

@@ -1,0 +1,85 @@
+<div class="container-fluid pozadina">
+    <app-prvi-navbar></app-prvi-navbar>
+
+    <div class="row" style="margin-bottom: 0px;">
+        <div class="col-sm-2 col-md-4"></div>
+        <div class="col-sm-8 col-md-4 kino">
+            <img src="assets/logo1.png" width="200px" height="64px" style="padding-bottom: 5px;" routerLink="/pocetna">
+        </div>
+        <div class="col-sm-2 col-md-4"></div>
+    </div>
+
+    <app-navbar></app-navbar>
+
+
+    <div class="row">
+        <div class="col-sm-1 col-md-0 col-lg-2"></div>
+        <div class="col-sm-10 col-md-12 col-lg-8" style="padding: 0px;">
+            <div class="row" style="padding-top: 15px; background-color: rgba(255,255,255, 0.5); text-align: center;">
+                <div class="col-sm-12">
+                    <label style="font-size: 30px; font-weight: bolder; font-style: italic; color: black;">ОDABERITE SEDIŠTA</label> <br>
+                </div>
+            </div>
+
+            <div class="row" style="padding-top: 15px; background-color: rgba(255,255,255, 0.5); text-align: center;">
+                <div class="col-sm-12">
+                    <label style="font-size: 20px; color: black;">{{bioskop}} &nbsp; - &nbsp; {{projekcija.sala}}</label> <br>
+                    <label style="font-size: 18px; color: black;">{{film}}</label> <br>
+                    <label style="font-size: 18px; color: black;">{{projekcija.datum}}</label> <br>
+                    <label style="font-size: 18px; color: black; padding-bottom: 40px;">Cena jedne ulaznice:&nbsp;{{projekcija.cena}} din</label> <br>
+                    <label style="font-size: 18px; color: black;">Cena vaših rezervacija:&nbsp;{{cena}} din</label> <br>
+                </div>
+            </div>
+
+            <div class="row" style="padding-top: 20px; background-color: rgba(255,255,255, 0.5); display: flex; flex-direction: row; justify-content: center;">
+                <div (click)="sediste(0)" [ngClass]="{'crno' : sedista[0] == 2, 'selektovano': sedista[0] == 1, 'sediste' : sedista[0] == 0}"></div>
+                <div (click)="sediste(1)" [ngClass]="{'crno' : sedista[1] == 2, 'selektovano': sedista[1] == 1, 'sediste' : sedista[1] == 0}"></div>
+                <div (click)="sediste(2)" [ngClass]="{'crno' : sedista[2] == 2, 'selektovano': sedista[2] == 1, 'sediste' : sedista[2] == 0}"></div>
+                <div (click)="sediste(3)" [ngClass]="{'crno' : sedista[3] == 2, 'selektovano': sedista[3] == 1, 'sediste' : sedista[3] == 0}"></div>
+                <div (click)="sediste(4)" [ngClass]="{'crno' : sedista[4] == 2, 'selektovano': sedista[4] == 1, 'sediste' : sedista[4] == 0}"></div>
+                <div (click)="sediste(5)" [ngClass]="{'crno' : sedista[5] == 2, 'selektovano': sedista[5] == 1, 'sediste' : sedista[5] == 0}"></div>
+            </div>
+
+            <div class="row" style="background-color: rgba(255,255,255, 0.5); display: flex; flex-direction: row; justify-content: center;">
+                <div (click)="sediste(6)" [ngClass]="{'crno' : sedista[6] == 2, 'selektovano': sedista[6] == 1, 'sediste' : sedista[6] == 0}"></div>
+                <div (click)="sediste(7)" [ngClass]="{'crno' : sedista[7] == 2, 'selektovano': sedista[7] == 1, 'sediste' : sedista[7] == 0}"></div>
+                <div (click)="sediste(8)" [ngClass]="{'crno' : sedista[8] == 2, 'selektovano': sedista[8] == 1, 'sediste' : sedista[8] == 0}"></div>
+                <div (click)="sediste(9)" [ngClass]="{'crno' : sedista[9] == 2, 'selektovano': sedista[9] == 1, 'sediste' : sedista[9] == 0}"></div>
+                <div (click)="sediste(10)" [ngClass]="{'crno' : sedista[10] == 2, 'selektovano': sedista[10] == 1, 'sediste' : sedista[10] == 0}"></div>
+                <div (click)="sediste(11)" [ngClass]="{'crno' : sedista[11] == 2, 'selektovano': sedista[11] == 1, 'sediste' : sedista[11] == 0}"></div>
+            </div>
+            <div class="row" style="background-color: rgba(255,255,255, 0.5); display: flex; flex-direction: row; justify-content: center;padding-bottom:20px;">
+                <div (click)="sediste(12)" [ngClass]="{'crno' : sedista[12] == 2, 'selektovano': sedista[12] == 1, 'sediste' : sedista[12] == 0}"></div>
+                <div (click)="sediste(13)" [ngClass]="{'crno' : sedista[13] == 2, 'selektovano': sedista[13] == 1, 'sediste' : sedista[13] == 0}"></div>
+                <div (click)="sediste(14)" [ngClass]="{'crno' : sedista[14] == 2, 'selektovano': sedista[14] == 1, 'sediste' : sedista[14] == 0}"></div>
+                <div (click)="sediste(15)" [ngClass]="{'crno' : sedista[15] == 2, 'selektovano': sedista[15] == 1, 'sediste' : sedista[15] == 0}"></div>
+                <div (click)="sediste(16)" [ngClass]="{'crno' : sedista[16] == 2, 'selektovano': sedista[16] == 1, 'sediste' : sedista[16] == 0}"></div>
+                <div (click)="sediste(17)" [ngClass]="{'crno' : sedista[17] == 2, 'selektovano': sedista[17] == 1, 'sediste' : sedista[17] == 0}"></div>
+            </div>
+
+            <div class="row" style="padding-bottom: 15px; background-color: rgba(255,255,255, 0.5); text-align: center;">
+                <div class="col-sm-5"></div>
+                <div class="col-sm-2">
+                    <button class="btn" (click)="rezervisi()"> 
+                       Rezerviši
+                    </button>
+                    <label style="font-weight: bold; height: 0px;">&#11164; &nbsp;</label> <a style="text-decoration: underline; color:rgb(51, 0, 0)" routerLink="/film">Povratak na film</a>
+                </div>
+                <div class="col-sm-5"></div>
+            </div>
+
+            <div class="row" style="padding-bottom: 15px; background-color: rgba(255,255,255, 0.5); text-align: center;" *ngIf="uspesno==true"> 
+                <div class="col-sm-12">
+                    <label style="font-size: 20px; color: rgb(0, 0, 0);">{{korisnik.ime}}, vaša rezervacija je evidentirana! Informacije o rezervaciji biće Vam poslate na mejl.</label> <br>
+                </div>
+            </div>
+            <div class="row" style="padding-bottom: 15px; background-color: rgba(255,255,255, 0.5); text-align: center;" *ngIf="poruka==true"> 
+                <div class="col-sm-12">
+                    <label style="font-size: 20px; color: rgb(0, 0, 0);"><span style="text-decoration: underline; color:brown" routerLink="/prijava">Prijavite se</span> da biste ostvarili rezervaciju.</label> <br>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-1 col-md-0 col-lg-2"></div>
+    </div>
+    <app-footer></app-footer>
+</div>

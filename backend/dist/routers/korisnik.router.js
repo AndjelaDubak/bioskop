@@ -1,0 +1,36 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const korisnik_controller_1 = require("../controllers/korisnik.controller");
+const korisnikRouter = express_1.default.Router();
+korisnikRouter.route('/prijava').post((req, res) => new korisnik_controller_1.KorisnikController().prijava(req, res));
+korisnikRouter.route('/getFilmove').get((req, res) => new korisnik_controller_1.KorisnikController().getFilmove(req, res));
+korisnikRouter.route('/getKorisnike').get((req, res) => new korisnik_controller_1.KorisnikController().getKorisnike(req, res));
+korisnikRouter.route('/registracija').post((req, res) => new korisnik_controller_1.KorisnikController().registracija(req, res));
+korisnikRouter.route('/getBioskope').get((req, res) => new korisnik_controller_1.KorisnikController().getBioskope(req, res));
+korisnikRouter.route('/getBioskopPoNazivu').post((req, res) => new korisnik_controller_1.KorisnikController().getBioskopPoNazivu(req, res));
+korisnikRouter.route('/getFilmPoNazivu').post((req, res) => new korisnik_controller_1.KorisnikController().getFilmPoNazivu(req, res));
+korisnikRouter.route('/pretraga').post((req, res) => new korisnik_controller_1.KorisnikController().pretraga(req, res));
+korisnikRouter.route('/pretragaPoZanru').post((req, res) => new korisnik_controller_1.KorisnikController().pretragaPoZanru(req, res));
+korisnikRouter.route('/promenaLozinke').post((req, res) => new korisnik_controller_1.KorisnikController().promenaLozinke(req, res));
+korisnikRouter.route('/deleteKorisnik').post((req, res) => new korisnik_controller_1.KorisnikController().deleteKorisnik(req, res));
+korisnikRouter.route('/prihvatiKorisnika').post((req, res) => new korisnik_controller_1.KorisnikController().prihvatiKorisnika(req, res));
+korisnikRouter.route('/unaprediiKorisnika').post((req, res) => new korisnik_controller_1.KorisnikController().unaprediKorisnika(req, res));
+korisnikRouter.route('/changeFilmOcena').post((req, res) => new korisnik_controller_1.KorisnikController().changeFilmOcena(req, res));
+korisnikRouter.route('/getProjekcije').post((req, res) => new korisnik_controller_1.KorisnikController().getProjekcije(req, res));
+korisnikRouter.route('/getFilmPoId').post((req, res) => new korisnik_controller_1.KorisnikController().getFilmPoId(req, res));
+korisnikRouter.route('/getBioskopPoId').post((req, res) => new korisnik_controller_1.KorisnikController().getBioskopPoId(req, res));
+korisnikRouter.route('/addRezervacija').post((req, res) => new korisnik_controller_1.KorisnikController().addRezervacija(req, res));
+korisnikRouter.route('/getRezervacijePoId').post((req, res) => new korisnik_controller_1.KorisnikController().getRezervacijePoId(req, res));
+korisnikRouter.route('/addFilm').post((req, res) => new korisnik_controller_1.KorisnikController().addFilm(req, res));
+korisnikRouter.route('/getFimab').get((req, res) => new korisnik_controller_1.KorisnikController().getFimab(req, res));
+korisnikRouter.route('/addFimab').post((req, res) => new korisnik_controller_1.KorisnikController().addFimab(req, res));
+korisnikRouter.route('/addOcena').post((req, res) => new korisnik_controller_1.KorisnikController().addOcena(req, res));
+korisnikRouter.route('/postojiOcena').post((req, res) => new korisnik_controller_1.KorisnikController().postojiOcena(req, res));
+korisnikRouter.route('/getOcene').post((req, res) => new korisnik_controller_1.KorisnikController().getOcene(req, res));
+korisnikRouter.route('/updateNesto').post((req, res) => new korisnik_controller_1.KorisnikController().updateNesto(req, res));
+exports.default = korisnikRouter;
+//# sourceMappingURL=korisnik.router.js.map

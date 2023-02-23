@@ -1,0 +1,169 @@
+.container-fluid{
+    margin: 0%;
+    padding: 0%;
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+}
+
+.row{
+    width: 100%;
+    margin: 0%;
+    padding: 0%;
+}
+
+.logo1{
+    background-color: rgb(240, 231, 231);
+    opacity: 0.8;
+}
+
+.pozadina{
+    background-image: url(/assets/poz.jpg);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size:cover;
+    width: 100%;
+    height: 100%;
+}
+
+.label1{
+    margin-left: 7px;
+    margin-right: 40px;
+    font-size: 13px;
+}
+
+.label2{
+    margin-left: 7px;
+    margin-right: 15px;
+    font-size: 13px;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.label1:hover{
+    box-shadow: 0px 6px 40px rgba(200, 41, 41, 0.968);
+}
+
+.label2:hover{
+    box-shadow: 0px 6px 40px rgba(200, 41, 41, 0.968);
+}
+
+.nav {
+    background-color: rgba(255,255,255, 0.8);
+    height: 50px;
+    align-content: center;
+    box-shadow: 0px 6px 20px rgba(200, 41, 41, 0.968);
+}
+
+.kino{
+    background-color: rgba(255,255,255, 0.8);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    box-shadow: 0px 6px 40px rgba(200, 41, 41, 0.968);
+}
+
+.navText{
+    height: 100%;
+    width: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0;
+}
+
+.navText:hover{
+    box-shadow: 0px 6px 40px rgba(200, 41, 41, 0.968);
+    transform: scale(1.04);
+}
+
+.repertoar{
+    font-size: 20px;
+    color: black;
+    margin-top: 10px;
+}
+
+.bioskopi {
+    font-size: 20px;
+    color: black;
+    margin-top: 10px;
+}
+
+.picsum-img-wrapper{
+    width: 100%;
+}
+
+.mem{
+    width: 100%;
+    height: 560px;
+}
+
+.film {
+    width: 100%;
+    height: 300px;
+}
+
+.nazivFilma{
+    display:block; 
+    text-align: center;
+    font-size: 16px;
+    font-weight: bolder;
+    font-style: italic;
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+
+.image {
+    position:relative;
+    display:block;
+}
+
+.overlay {
+    display:none;
+}
+
+.image:hover .overlay {
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.7);
+    position:absolute;
+    top:0;
+    left:0;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0px 6px 30px rgba(200, 41, 41, 0.968);
+}
+
+.uskoro{
+    font-size: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-weight: bolder;
+    margin-bottom: 20px;
+    color: black;
+}
+
+.usk{
+    color: black;
+    text-decoration: underline;
+}
+
+.usk:hover{
+    transform: scale(1.04);
+    color: rgb(138, 36, 36);
+}

@@ -1,0 +1,124 @@
+<div class="container-fluid pozadina">
+    <app-prvi-navbar></app-prvi-navbar>
+
+    <div class="row" style="margin-bottom: 0px;">
+        <div class="col-sm-2 col-md-4"></div>
+        <div class="col-sm-8 col-md-4 kino">
+            <img src="assets/logo1.png" width="200px" height="64px" style="padding-bottom: 5px;" routerLink="/pocetna">
+        </div>
+        <div class="col-sm-2 col-md-4"></div>
+    </div>
+
+    <app-navbar></app-navbar>
+
+    <div class="row">
+        <div class="col-sm-1 col-md-0 col-lg-2"></div>
+        <div class="col-sm-10 col-md-12 col-lg-8" style="padding: 0px;">
+            <ngb-carousel>
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                    <img src="assets/izdaja.jpg" class="mem">
+                    </div>
+                    <div class="carousel-caption">
+                    <h3>IZDAJA</h3>
+                    <p>Čekamo vas! Rezervišite vašu kartu na vreme</p>
+                    </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                <div class="picsum-img-wrapper">
+                    <img src="assets/memento.jpg" class="mem">
+                </div>
+                <div class="carousel-caption">
+                    <h3>MEMENTO</h3>
+                    <p>Od ponedeljka samo kod nas</p>
+                </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                <div class="picsum-img-wrapper">
+                    <img src="assets/toy.jpg" class="mem">
+                </div>
+                <div class="carousel-caption">
+                    <h3>TOY STORY</h3>
+                    <p>Rezervišite vašu ulaznicu</p>
+                </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                <div class="picsum-img-wrapper">
+                    <img src="assets/legalna.jpg" class="mem">
+                </div>
+                <div class="carousel-caption">
+                    <h3>PRAVNA PLAVUŠA</h3>
+                    <p>Romantična komedija</p>
+                </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                    <img src="assets/avatar.jpg" class="mem">
+                    </div>
+                    <div class="carousel-caption">
+                    <h3>AVATAR</h3>
+                    <p>Naučna fantastika</p>
+                    </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                    <img src="assets/southpaw.jpg" class="mem">
+                    </div>
+                    <div class="carousel-caption">
+                    <h3>LEVI KROŠE</h3>
+                    <p>Samo u bioskopima Kinoteatar od 2. decembra</p>
+                    </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                    <img src="assets/anabel.jpg" class="mem">
+                    </div>
+                    <div class="carousel-caption">
+                    <h3>ANABEL</h3>
+                    <p>Od sada i u 4DX sali</p>
+                    </div>
+                </ng-template>
+            </ngb-carousel>
+        </div>
+        <div class="col-sm-1 col-md-0 col-lg-2"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-1 col-md-0 col-lg-2"></div>
+        <div class="col-sm-10 col-md-12 col-lg-8" style="padding: 0px;">
+            <div class="row" style="padding-top: 40px; background-color: rgba(255,255,255, 0.5);">
+                <div class="uskoro"><a class="usk" routerLink="/uskoro">USKORO</a> &nbsp;u Kinoteatru!</div>
+                <div class="col-6 col-sm-6 col-md-3 col-lg-3" (click) = "otvoriFilm(0)">
+                    <div class="image">
+                        <img src="assets/{{buduciFilmovi[0].slika}}" class="film">
+                        <div class="overlay">Početak prikazivanja: <br>{{buduciFilmovi[0].datumPocetka}}</div>
+                    </div>
+                    <label class="nazivFilma">{{buduciFilmovi[0].naziv}}</label>
+                </div>
+                <div class="col-6 col-sm-6 col-md-3 col-lg-3" (click) = "otvoriFilm(1)">
+                    <div class="image">
+                        <img src="assets/{{buduciFilmovi[1].slika}}" class="film">
+                        <div class="overlay">Početak prikazivanja: <br>{{buduciFilmovi[1].datumPocetka}}</div>
+                    </div>
+                    <label class="nazivFilma">{{buduciFilmovi[1].naziv}}</label>
+                </div>
+                <div class="col-6 col-sm-6 col-md-3 col-lg-3" (click) = "otvoriFilm(2)">
+                    <div class="image">
+                        <img src="assets/{{buduciFilmovi[2].slika}}" class="film">
+                        <div class="overlay">Početak prikazivanja: <br>{{buduciFilmovi[2].datumPocetka}}</div>
+                    </div>
+                    <label class="nazivFilma">{{buduciFilmovi[2].naziv}}</label>
+                </div>
+                <div class="col-6 col-sm-6 col-md-3 col-lg-3" (click) = "otvoriFilm(3)">
+                    <div class="image">
+                        <img src="assets/{{buduciFilmovi[3].slika}}" class="film">
+                        <div class="overlay">Početak prikazivanja: <br>{{buduciFilmovi[3].datumPocetka}}</div>
+                    </div>
+                    <label class="nazivFilma">{{buduciFilmovi[3].naziv}}</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-1 col-md-0 col-lg-2"></div>
+    </div>
+    <app-footer></app-footer>
+</div>

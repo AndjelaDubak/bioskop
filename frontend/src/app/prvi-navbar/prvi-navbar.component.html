@@ -1,0 +1,42 @@
+<div class="row navbar" style="margin-bottom: 30px;">
+    <div class="col-sm-12" style='text-align:right; margin: 0; padding: 0;'>
+        <img src="assets/prijava1.png" width="30px" height="27px" routerLink="/prijava" *ngIf="korisnik==null">
+        <a class="label1" routerLink="/prijava" *ngIf="korisnik==null">Prijava</a>
+        <img src="assets/prijava.png" width="23px" height="23px" routerLink="/registracija" *ngIf="korisnik==null">
+        <a class="label2" routerLink="/registracija" *ngIf="korisnik==null">Registracija</a>
+
+            <div *ngIf="korisnik!=null">
+            <img src="assets/prijava.png" width="23px" height="23px" routerLink="/registracija" *ngIf="korisnik.tip=='korisnik'">
+            <a class="label2" routerLink="/promenaLozinke" *ngIf="korisnik.tip=='korisnik'">Promeni lozinku</a>
+            <img src="assets/prijava1.png" width="30px" height="27px" routerLink="/prijava" *ngIf="korisnik.tip=='korisnik'">
+            <a class="label1" *ngIf="korisnik.tip=='korisnik'" (click)="odjava()">Odjavi se</a>
+        </div>
+
+        <div *ngIf="korisnik!=null">
+            <img src="assets/plus.png" width="23px" height="23px" routerLink="/dodajFilm" *ngIf="korisnik.tip=='administrator'">
+            <a class="label1" routerLink="/dodajFilm" *ngIf="korisnik.tip=='administrator'">Dodaj film</a>
+            <img src="assets/plus.png" width="23px" height="23px" routerLink="/dodajProjekcije" *ngIf="korisnik.tip=='administrator'">
+            <a class="label1" routerLink="/dodajProjekcije" *ngIf="korisnik.tip=='administrator'">Dodaj projekcije</a>
+            <img src="assets/list.png" width="23px" height="23px" routerLink="/spisakKorisnika" *ngIf="korisnik.tip=='administrator'">
+            <a class="label1" routerLink="/spisakKorisnika" *ngIf="korisnik.tip=='administrator'">Spisak korisnika</a>
+            <img src="assets/prijava.png" width="23px" height="23px" routerLink="/promenaLozinke" *ngIf="korisnik.tip=='administrator'">
+            <a class="label2" routerLink="/promenaLozinke" *ngIf="korisnik.tip=='administrator'">Promeni lozinku</a>
+            <img src="assets/prijava1.png" width="30px" height="27px" *ngIf="korisnik.tip=='administrator'">
+            <a class="label1" *ngIf="korisnik.tip=='administrator'" (click)="odjava()">Odjavi se</a>
+        </div>
+
+        <div *ngIf="korisnik!=null">
+            <img src="assets/plus.png" width="23px" height="23px" routerLink="/dodajFilm" *ngIf="korisnik.tip=='moderator'">
+            <a class="label1" routerLink="/dodajFilm" *ngIf="korisnik.tip=='moderator'">Dodaj film</a>
+            <img src="assets/plus.png" width="23px" height="23px" routerLink="/dodajProjekcije" *ngIf="korisnik.tip=='moderator'">
+            <a class="label1" routerLink="/dodajProjekcije" *ngIf="korisnik.tip=='moderator'">Dodaj projekcije</a>
+            <img src="assets/list.png" width="23px" height="23px" routerLink="/spisakKorisnika" *ngIf="korisnik.tip=='moderator'">
+            <a class="label1" routerLink="/spisakKorisnika" *ngIf="korisnik.tip=='moderator'">Spisak korisnika</a>
+            <img src="assets/prijava.png" width="23px" height="23px" routerLink="/promenaLozinke" *ngIf="korisnik.tip=='moderator'">
+            <a class="label2" routerLink="/promenaLozinke" *ngIf="korisnik.tip=='moderator'">Promeni lozinku</a>
+            <img src="assets/prijava1.png" width="30px" height="27px" *ngIf="korisnik.tip=='moderator'">
+            <a class="label1" *ngIf="korisnik.tip=='moderator'" (click)="odjava()">Odjavi se</a>
+        </div>
+
+    </div>
+</div>

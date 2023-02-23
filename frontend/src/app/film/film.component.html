@@ -1,0 +1,107 @@
+<div class="container-fluid pozadina">
+    <app-prvi-navbar></app-prvi-navbar>
+
+    <div class="row" style="margin-bottom: 0px;">
+        <div class="col-sm-2 col-md-4"></div>
+        <div class="col-sm-8 col-md-4 kino">
+            <img src="assets/logo1.png" width="200px" height="64px" style="padding-bottom: 5px;" routerLink="/pocetna">
+        </div>
+        <div class="col-sm-2 col-md-4"></div>
+    </div>
+
+   <app-navbar></app-navbar>
+
+    <div class="row">
+        <div class="col-sm-1 col-md-1 col-lg-2"></div>
+        <div class="col-sm-10 col-md-10 col-lg-8" style="padding: 0px;">
+            <div class="row" style="padding-top: 15px; background-color: rgba(255,255,255, 0.7); text-align: center;">
+                <div class="col-sm-12">
+                    <label style="font-size: 30px; font-weight: bolder; font-style: italic; color: black;">{{film.naziv}}</label> <br>
+                </div>
+            </div>
+            <div class="row" style="padding-top: 20px; padding-bottom:20px; background-color: rgba(255,255,255, 0.7);">
+                <div class="col-sm-12">
+                    <iframe width="100%" height="400" [src]="film.trejler | safe"></iframe>
+                </div>
+            </div>
+            <div class="row" style="padding-top: 20px; padding-bottom:20px; background-color: rgba(255,255,255, 0.7);">
+                <div class="col-5 col-sm-5 col-md-4 col-lg-3">
+                    <img src="assets/{{film.slika}}" class="film">
+                </div>
+                <div class="col-7 col-sm-7 col-md-8 col-lg-9">
+                   <label style="font-style: italic; color: rgb(61, 61, 61);">Naslov:&nbsp;</label> 
+                   <label style="color: black;">{{film.naziv}}</label> <br>
+                   <label style="font-style: italic; color: rgb(61, 61, 61);">Početak prikazivanja:&nbsp;</label>
+                   <label style="color: black;">{{film.datumPocetka}}</label> <br>
+                   <label style="font-style: italic; color: rgb(61, 61, 61);">Dužina trajanja:&nbsp;</label>
+                   <label style="color: black;">{{film.trajanje}}min</label> <br>
+                   <label style="font-style: italic; color: rgb(61, 61, 61);">Žanr:&nbsp;</label>
+                   <label style="color: black;">{{film.zanr}}</label> <br>
+                   <label style="font-style: italic; color: rgb(61, 61, 61);">Glumci:&nbsp;</label>
+                   <label style="color: black;">{{film.glumci}}</label> <br>
+                   <label style="font-style: italic; color: rgb(61, 61, 61);">Režiser:&nbsp;</label>
+                   <label style="color: black;">{{film.reziser}}</label> <br>
+                   <label style="font-style: italic; color: rgb(61, 61, 61);">God izlaska:&nbsp;</label>
+                   <label style="color: black;">{{film.godIzlaska}}</label> <br>
+                   <label style="font-style: italic; color: rgb(61, 61, 61);">Sadržaj:&nbsp;</label>
+                   <label style="color: black;">{{film.sadrzaj}}</label> <br>
+                </div>
+            </div>
+
+            <div class="row" style="padding-top: 20px; padding-bottom:20px; background-color: rgba(255,255,255, 0.7);" *ngIf="buduci==false">
+                <hr>
+                <div class="col-lg-12" style="text-align: center;">
+                    <label style="font-size: 20px; color: black; margin-bottom: 10px;">VREMENSKI RASPORED PROJEKCIJA &nbsp;</label> <br> 
+                    <select class="sel" [(ngModel)]='bioskop' onfocus='this.size=3' onblur='this.size=1' onchange='this.size=1;' style="width: 200px; margin-bottom: 20px;" (change)="onChangeBioskop()">
+                        <option [ngValue]="bioskop.naziv" *ngFor='let bioskop of bioskopi'>{{bioskop.naziv}}</option>
+                    </select> <br>
+
+                  <div class="projekcije">
+                    <label style="font-size: 15px; color: rgb(61, 61, 61); margin-right: 40px; font-weight: bold;">DANAS <br> {{danas}}</label>
+                    <div *ngFor="let p of danasnjeProjekcije" style="padding-right:10px; padding-left:10px; margin-right: 10px;" class="vreme" (click)="rezervisi(p)">
+                        <label style="font-size: 15px; color: black; font-weight: bold; ">{{p.vreme}}</label> <br>
+                        <label style="font-size: 15px; color: black;">{{p.sala}}</label> <br>
+                    </div>
+                  </div>
+                  <div class="projekcije">
+                    <label style="font-size: 15px; color: rgb(61, 61, 61); margin-right: 40px; font-weight: bold;">SUTRA <br> {{sutra}}</label>
+                    <div *ngFor="let p of sutrasnjeProjekcije" style="padding-right:10px; padding-left:10px; margin-right: 10px;" class="vreme" (click)="rezervisi(p)">
+                        <label style="font-size: 15px; color: black; font-weight: bold; ">{{p.vreme}}</label> <br>
+                        <label style="font-size: 15px; color: black;">{{p.sala}}</label> <br>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+            <div class="row" style="padding-top: 20px; padding-bottom:20px; background-color: rgba(255,255,255, 0.7);" *ngIf="korisnik!=null && buduci==false">
+                <hr>
+                <div class="col-lg-12" style="text-align: center;">
+                    <label style="font-size: 20px; color: black;">OCENI&nbsp;</label> <br> 
+                    <label style="font-size: 15px; color: black;">Trenutna ocena: &nbsp; {{film.ocena.toFixed(1)}}</label> 
+                </div>
+
+                <div class="col-lg-12" style="display: flex; flex-direction: row; justify-content: center;">
+                    <ngb-rating [(rate)]="ocena" (rateChange)="oceni($event)"></ngb-rating>
+                </div>
+
+                <div *ngIf="vecOcenio==true" style="text-align: center;">
+                    <label style="font-size: 15px; color: black;">Već ste ocenili ovaj film!</label>
+                </div>
+            </div>
+
+            <div class="row" style="padding-top: 20px; padding-bottom:20px; background-color: rgba(255,255,255, 0.7);" *ngIf="korisnik==null && buduci==false">
+                <hr>
+                <div class="col-lg-12" style="text-align: center;">
+                    <label style="font-size: 20px; color: black;"><span style="text-decoration: underline;" routerLink="/prijava" class="sp">PRIJAVITE SE</span> I OCENITE FILM!&nbsp;</label> <br> 
+                    <label style="font-size: 15px; color: black;">Da biste koristili ovu funkciju, morate se prijaviti. Ukoliko još uvek niste otvorili vaš korisnički nalog, možete se registrovati <span style="color: brown; text-decoration: underline;" routerLink="/registracija">ovde</span>.</label> 
+                </div>
+                <div class="col-lg-12" style="display: flex; flex-direction: row; justify-content: center;">
+                    <ngb-rating [(rate)]="ocena" (rateChange)="oceni($event)"></ngb-rating>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-1 col-md-1 col-lg-2"></div>
+    </div>
+
+    <app-footer></app-footer>
+</div>
